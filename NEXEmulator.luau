@@ -4,13 +4,10 @@
 --!optimize 3
 local game,workspace=cloneref(game),cloneref(workspace)
 local getrenv,clonefunction,GetRegisteredInstances,getcustomasset_base,readfile,writefile,loadstring,makefolder,deletefile,deletefolder,rawgetmetatable,rawsetmetatable,setreadonly,hookfunction,setidentity,getthreadidentity,request,getsenv,getmenv,loadfile,appendfile,listfiles,isfile,isfolder,newcclosure,newlclosure,ReplicateSignal,GetConnections,CloneReference=getrenv,clonefunction,getinstances,getcustomasset,readfile,writefile,loadstring,makefolder,delfile,delfolder,getrawmetatable,setrawmetatable,setreadonly,hookfunction,setidentity,getthreadidentity,request,getsenv,getmenv,loadfile,appendfile,listfiles,isfile,isfolder,newcclosure,newlclosure,replicatesignal,getconnections,cloneref
-local function NEXRequire(x)
-	return request({Url=`https://raw.githubusercontent.com/NEXEmulator/Emulator/refs/heads/main/{x}`,Method="GET"}).Body
-end
 local function ImportToFolder(x,y)
 	for i,v in next,y do
 		if not isfile(`{x}/{i}`) then
-			writefile(`{x}/{i}`,NEXRequire(v))
+			writefile(`{x}/{i}`,request({Url=`https://raw.githubusercontent.com/gotham10/robloxtest/refs/heads/main/{v}`,Method="GET"}).Body)
 		end
 	end
 end
